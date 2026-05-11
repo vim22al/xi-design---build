@@ -12,7 +12,10 @@ export default function CustomCursor() {
   const x = useSpring(cursorX, springConfig);
   const y = useSpring(cursorY, springConfig);
 
+  const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
+    setMounted(true);
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
@@ -32,6 +35,8 @@ export default function CustomCursor() {
       window.removeEventListener('mouseover', handleHover);
     };
   }, [cursorX, cursorY]);
+
+  if (!mounted) return null;
 
   return (
     <motion.div
