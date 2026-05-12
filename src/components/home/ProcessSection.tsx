@@ -72,7 +72,7 @@ export default function ProcessSection() {
                     "flex flex-col group",
                     index % 2 === 0 ? "md:items-start" : "md:items-end md:text-right"
                   )}>
-                    <span className="font-display text-4xl mb-4 text-dual-tone opacity-40 transition-opacity duration-500 group-hover:opacity-80">
+                    <span className="font-display text-4xl mb-4 text-[#5D1E21] opacity-60 transition-opacity duration-500 group-hover:opacity-100">
                       {step.number}
                     </span>
                     <h3 className="text-xl font-display mb-4 text-dual-tone">{step.title}</h3>

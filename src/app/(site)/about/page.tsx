@@ -3,6 +3,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import LuxuryButton from "@/components/ui/LuxuryButton";
 import FadeInSection from "@/components/ui/FadeInSection";
 import Image from "next/image";
+import { ExternalLink } from "lucide-react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -123,7 +124,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
             {[
               { label: "Years Experience", value: "15+" },
-              { label: "Completed Projects", value: "250+" },
+              { label: "Completed Projects", value: "550+" },
               { label: "Design Awards", value: "18" },
               { label: "Expert Team", value: "25" }
             ].map((stat, i) => (
@@ -174,12 +175,11 @@ export default function AboutPage() {
             title="The Minds <br /> <span class='italic'>Behind the Vision</span>"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
             {[
               { name: "Julian Thorne", role: "Principal Architect", img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop" },
               { name: "Sophia Vane", role: "Design Director", img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop" },
-              { name: "Marcus Sterling", role: "Technical Lead", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2070&auto=format&fit=crop" },
-              { name: "Eleanor May", role: "Senior Associate", img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2070&auto=format&fit=crop" },
+              { name: "Aiko Tanaka", role: "Technical Lead", img: "/images/aiko_tanaka.png" },
             ].map((member, i) => (
               <FadeInSection key={i} delay={i * 0.1} className="group">
                 <div className="aspect-[3/4] overflow-hidden relative mb-6">
@@ -190,6 +190,71 @@ export default function AboutPage() {
                 <p className="text-[10px] uppercase tracking-widest text-luxury-gold mt-2 font-medium">{member.role}</p>
               </FadeInSection>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Construction Partner Section */}
+      <section className="section-spacing bg-warm-ivory overflow-hidden">
+        <div className="container-luxury">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center">
+            {/* Left: Luxury construction image */}
+            <FadeInSection direction="left">
+              <div className="relative">
+                <div className="relative aspect-[4/5] md:aspect-square overflow-hidden group border border-luxury-gold/10">
+                  <Image
+                    src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop"
+                    alt="HSS Design & Build — Precision Construction"
+                    fill
+                    className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-rich-black/50 via-transparent to-transparent" />
+                </div>
+                {/* Floating accent tag */}
+                <div className="absolute -bottom-6 -left-6 bg-rich-black text-luxury-gold px-6 py-4 hidden md:block">
+                  <p className="text-[9px] uppercase tracking-[0.35em] font-medium">Trusted Build Partner</p>
+                  <p className="text-lg font-display mt-1">HSS Design &amp; Build</p>
+                </div>
+                <div className="absolute -top-4 -right-4 w-16 h-16 border-t border-r border-luxury-gold/30 hidden md:block" />
+              </div>
+            </FadeInSection>
+
+            {/* Right: Partnership content */}
+            <FadeInSection direction="right">
+              <SectionHeading
+                subtitle="Construction Partnership"
+                subtitleColor="text-luxury-gold"
+                title="Architecture &amp; Construction <span class='italic'>Working Seamlessly</span> Together"
+                description="From the initial sketch to the final handover, our collaboration with HSS Design &amp; Build ensures that every architectural vision is realised with uncompromising craftsmanship and precision delivery."
+              />
+
+              <div className="space-y-6 mb-12">
+                {[
+                  { step: '01', title: 'Architectural Planning', desc: 'XI Design & Build leads concept development, spatial planning and local authority approvals.' },
+                  { step: '02', title: 'Technical Design & Documentation', desc: 'Detailed engineering drawings, specifications and material schedules prepared to construction standard.' },
+                  { step: '03', title: 'Build Execution', desc: 'HSS Design & Build manage site operations, trades coordination and quality assurance on-site.' },
+                  { step: '04', title: 'Project Delivery', desc: 'A seamless client handover — on time, on budget, and built exactly to your vision.' },
+                ].map((item) => (
+                  <div key={item.step} className="flex gap-6 group">
+                    <span className="text-luxury-gold/40 font-display text-xl shrink-0 group-hover:text-luxury-gold transition-colors duration-500">{item.step}</span>
+                    <div>
+                      <h4 className="text-sm font-display text-dual-tone mb-1">{item.title}</h4>
+                      <p className="text-[13px] text-foreground/50 font-light leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <a
+                href="https://hssdb.co.uk/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 bg-deep-green text-white uppercase tracking-[0.25em] text-[10px] px-10 py-5 font-medium border border-transparent hover:border-luxury-gold/50 hover:shadow-lg hover:shadow-luxury-gold/10 transition-all duration-700 group"
+              >
+                Visit HSS Design &amp; Build
+                <ExternalLink className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-500" />
+              </a>
+            </FadeInSection>
           </div>
         </div>
       </section>

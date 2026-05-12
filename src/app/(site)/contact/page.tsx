@@ -2,17 +2,52 @@ import PageBanner from "@/components/ui/PageBanner";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ContactForm from "@/components/ui/ContactForm";
 import FadeInSection from "@/components/ui/FadeInSection";
-import { Mail, Phone, MapPin, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Mail, Phone, MapPin, Instagram, Linkedin, Twitter, ExternalLink } from "lucide-react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Contact Us | XI DESIGN BUILD",
-  description: "Let’s Discuss Your Vision. Reach out to our London-based architectural studio to start your next luxury design and build project.",
+  description: "Let’s Discuss Your Vision. Reach out to our architectural studio to start your next luxury design and build project.",
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "XI Design & Build",
+  "image": "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2069&auto=format&fit=crop",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "110 Hagley Road West",
+    "addressLocality": "Birmingham",
+    "postalCode": "B67 5EZ",
+    "addressCountry": "UK"
+  },
+  "telephone": "07902311786",
+  "email": "sales@hssdb.co.uk",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "opens": "07:00",
+      "closes": "17:00"
+    }
+  ]
 };
 
 export default function ContactPage() {
   return (
     <main className="min-h-screen bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <PageBanner 
         title="Let&apos;s Discuss Your Vision" 
         subtitle="Contact Us"
@@ -45,23 +80,26 @@ export default function ContactPage() {
                   </div>
 
                   {/* Phone & Email */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <div className="flex items-start gap-8 group">
-                      <div className="w-14 h-14 flex items-center justify-center border border-rich-black/5 group-hover:border-luxury-gold transition-colors duration-500">
-                        <Phone className="w-5 h-5 text-luxury-gold" />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+                    <div className="flex items-start gap-5 md:gap-6 group">
+                      <div className="w-12 h-12 shrink-0 flex items-center justify-center border border-rich-black/5 group-hover:border-luxury-gold transition-colors duration-500">
+                        <Phone className="w-4 h-4 text-luxury-gold" />
                       </div>
-                      <div>
-                        <h4 className="text-[10px] uppercase tracking-widest text-foreground/40 mb-3 font-medium">Call Us</h4>
-                        <p className="text-lg font-display">+44 (0) 20 1234 5678</p>
+                      <div className="min-w-0 flex-1">
+                        <h4 className="text-[10px] uppercase tracking-widest text-foreground/40 mb-2 font-medium">Call Us</h4>
+                        <div className="space-y-1.5">
+                          <a href="tel:07902311786" className="block text-[15px] md:text-base font-display hover:text-luxury-gold transition-colors whitespace-nowrap tracking-wide">07902311786</a>
+                          <a href="tel:02039090313" className="block text-[15px] md:text-base font-display hover:text-luxury-gold transition-colors whitespace-nowrap tracking-wide">0203 909 0313</a>
+                        </div>
                       </div>
                     </div>
-                    <div className="flex items-start gap-8 group">
-                      <div className="w-14 h-14 flex items-center justify-center border border-rich-black/5 group-hover:border-luxury-gold transition-colors duration-500">
-                        <Mail className="w-5 h-5 text-luxury-gold" />
+                    <div className="flex items-start gap-5 md:gap-6 group">
+                      <div className="w-12 h-12 shrink-0 flex items-center justify-center border border-rich-black/5 group-hover:border-luxury-gold transition-colors duration-500">
+                        <Mail className="w-4 h-4 text-luxury-gold" />
                       </div>
-                      <div>
-                        <h4 className="text-[10px] uppercase tracking-widest text-foreground/40 mb-3 font-medium">Email Us</h4>
-                        <p className="text-lg font-display">info@xidesign.com</p>
+                      <div className="min-w-0 flex-1">
+                        <h4 className="text-[10px] uppercase tracking-widest text-foreground/40 mb-2 font-medium">Email Us</h4>
+                        <a href="mailto:sales@hssdb.co.uk" className="block text-[15px] md:text-base font-display hover:text-luxury-gold transition-colors whitespace-nowrap tracking-wide">sales@hssdb.co.uk</a>
                       </div>
                     </div>
                   </div>
@@ -70,10 +108,26 @@ export default function ContactPage() {
                   <div className="pt-12 border-t border-rich-black/5">
                     <h4 className="text-[10px] uppercase tracking-widest text-foreground/40 mb-6 font-medium">Office Hours</h4>
                     <ul className="space-y-3 text-sm font-light">
-                      <li className="flex justify-between"><span>Monday — Friday</span> <span>09:00 - 18:00</span></li>
-                      <li className="flex justify-between"><span>Saturday</span> <span>By Appointment Only</span></li>
+                      <li className="flex justify-between"><span>Monday — Saturday</span> <span>07:00 - 17:00</span></li>
                       <li className="flex justify-between"><span>Sunday</span> <span>Closed</span></li>
                     </ul>
+                  </div>
+
+                  {/* Construction Partner Reference */}
+                  <div className="pt-12 border-t border-rich-black/5">
+                    <h4 className="text-[10px] uppercase tracking-widest text-foreground/40 mb-3 font-medium">Construction Services</h4>
+                    <p className="text-[13px] text-foreground/50 font-light leading-relaxed mb-4">
+                      Build and construction services are available through our trusted partner.
+                    </p>
+                    <a
+                      href="https://hssdb.co.uk/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-[13px] text-foreground/60 hover:text-luxury-gold transition-colors duration-500 group border-b border-rich-black/10 hover:border-luxury-gold/40 pb-0.5"
+                    >
+                      HSS Design &amp; Build
+                      <ExternalLink className="w-3 h-3 opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-500" />
+                    </a>
                   </div>
 
                   {/* Social Links */}
@@ -95,7 +149,7 @@ export default function ContactPage() {
             <div className="lg:col-span-7">
               <FadeInSection direction="right">
                 <div className="bg-warm-ivory/30 p-10 md:p-20 border border-rich-black/5">
-                  <h3 className="text-2xl font-display mb-12 italic text-dual-tone">Start Your Project</h3>
+                  <h3 className="text-2xl font-display mb-12 italic text-dual-tone">Book Your Design Consultation</h3>
                   <ContactForm />
                 </div>
               </FadeInSection>
@@ -107,7 +161,7 @@ export default function ContactPage() {
       {/* Map Section */}
       <section className="h-[600px] w-full relative grayscale hover:grayscale-0 transition-all duration-1000 overflow-hidden">
         <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2430.490802717904!2d-2.007604588265008!3d52.47355157193233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870bb073f44c9b9%3A0xc3f12b6b553e18!2s110%20Hagley%20Rd%20W%2C%20Oldbury%20B67%205EZ%2C%20UK!5e0!3m2!1sen!2sin!4v1715349999999!5m2!1sen!2sin" 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2430.490802717904!2d-2.007604588265008!3d52.47355157193233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870bb073f44c9b9%3A110+Hagley+Road+West%2C+Birmingham%2C+B67+5EZ!5e0!3m2!1sen!2suk!4v1715349999999!5m2!1sen!2suk" 
           width="100%" 
           height="100%" 
           style={{ border: 0 }} 
@@ -125,7 +179,7 @@ export default function ContactPage() {
           <FadeInSection>
             <h2 className="text-3xl md:text-5xl font-display mb-10 text-dual-tone">Experience Architecture <br /> <span className="italic">Elevated</span></h2>
             <a 
-              href="mailto:info@xidesign.com" 
+              href="mailto:sales@hssdb.co.uk"  
               className="text-luxury-gold uppercase tracking-[0.4em] text-[10px] font-bold border-b border-luxury-gold/30 pb-2 hover:border-luxury-gold transition-all duration-500"
             >
               Request a Portfolio PDF

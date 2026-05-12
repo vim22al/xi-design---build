@@ -71,11 +71,11 @@ export default function AboutPreview() {
               
               <div className="grid grid-cols-2 gap-8 pt-6 border-t border-luxury-gold/15">
                 <div>
-                  <h4 className="text-3xl font-display text-dual-tone">150+</h4>
-                  <p className="text-[10px] uppercase tracking-widest text-luxury-gold/70 mt-2">Projects Completed</p>
+                  <h4 className="text-3xl font-display text-dual-tone">550+</h4>
+                  <p className="text-[10px] uppercase tracking-widest text-luxury-gold/70 mt-2">Completed Projects</p>
                 </div>
                 <div>
-                  <h4 className="text-3xl font-display text-dual-tone">12+</h4>
+                  <h4 className="text-3xl font-display text-dual-tone">15+</h4>
                   <p className="text-[10px] uppercase tracking-widest text-luxury-gold/70 mt-2">Years Experience</p>
                 </div>
 

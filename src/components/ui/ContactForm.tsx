@@ -50,7 +50,7 @@ export default function ContactForm() {
           <input
             {...register("name")}
             className="w-full bg-transparent border-b border-rich-black/10 py-3 px-1 focus:border-luxury-gold outline-none transition-colors font-light"
-            placeholder="John Doe"
+            placeholder="Your Full Name"
           />
           {errors.name && <p className="text-deep-burgundy text-[10px] uppercase tracking-widest mt-1">{errors.name.message}</p>}
         </div>
@@ -60,7 +60,7 @@ export default function ContactForm() {
           <input
             {...register("email")}
             className="w-full bg-transparent border-b border-rich-black/10 py-3 px-1 focus:border-luxury-gold outline-none transition-colors font-light"
-            placeholder="john@example.com"
+            placeholder="your@email.com"
           />
           {errors.email && <p className="text-deep-burgundy text-[10px] uppercase tracking-widest mt-1">{errors.email.message}</p>}
         </div>
@@ -72,7 +72,7 @@ export default function ContactForm() {
           <input
             {...register("phone")}
             className="w-full bg-transparent border-b border-rich-black/10 py-3 px-1 focus:border-luxury-gold outline-none transition-colors font-light"
-            placeholder="+44 000 000 000"
+            placeholder="Enter your phone number"
           />
           {errors.phone && <p className="text-deep-burgundy text-[10px] uppercase tracking-widest mt-1">{errors.phone.message}</p>}
         </div>
@@ -99,7 +99,7 @@ export default function ContactForm() {
           {...register("message")}
           rows={5}
           className="w-full bg-transparent border-b border-rich-black/10 py-3 px-1 focus:border-luxury-gold outline-none transition-colors font-light resize-none"
-          placeholder="Tell us about your project..."
+          placeholder="Tell us about your project vision..."
         />
         {errors.message && <p className="text-deep-burgundy text-[10px] uppercase tracking-widest mt-1">{errors.message.message}</p>}
       </div>

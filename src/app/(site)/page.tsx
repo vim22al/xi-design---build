@@ -4,6 +4,7 @@ import AboutPreview from "@/components/home/AboutPreview";
 import ProcessSection from "@/components/home/ProcessSection";
 import ProjectsMasonry from "@/components/home/ProjectsMasonry";
 import Testimonials from "@/components/home/Testimonials";
+import PartnerSection from "@/components/home/PartnerSection";
 import ContactCTA from "@/components/home/ContactCTA";
 import { client } from "@/sanity/lib/client";
 import { featuredProjectsQuery } from "@/sanity/lib/queries";
@@ -29,6 +30,9 @@ export default async function Home() {
 
       {/* Testimonials Section */}
       <Testimonials />
+
+      {/* Construction Partner Section */}
+      <PartnerSection />
 
       {/* Contact CTA Section */}
       <ContactCTA />

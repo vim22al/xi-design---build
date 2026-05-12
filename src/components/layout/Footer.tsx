@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Instagram, Facebook, Linkedin, Twitter, ArrowRight } from 'lucide-react';
+import { Instagram, Facebook, Linkedin, Twitter, ArrowRight, ExternalLink } from 'lucide-react';
 
 const footerLinks = {
   navigation: [
@@ -34,7 +34,7 @@ export default function Footer() {
     <footer className="bg-rich-black text-warm-ivory pt-24 pb-12 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-luxury-gold/30 to-transparent" />
       <div className="container-luxury">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-16 mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 mb-24">
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <Link href="/" className="text-2xl lg:text-3xl font-display tracking-[0.15em] text-luxury-gold uppercase block mb-8">
@@ -43,6 +43,19 @@ export default function Footer() {
             <p className="text-sm text-warm-ivory/50 leading-relaxed mb-8 max-w-xs">
               Crafting bespoke architectural excellence and premium interior design solutions for sophisticated living spaces globally.
             </p>
+            
+            <div className="space-y-3 mb-8">
+              <a href="mailto:sales@hssdb.co.uk" className="block text-sm text-warm-ivory/40 hover:text-luxury-gold transition-colors">
+                sales@hssdb.co.uk
+              </a>
+              <a href="tel:07902311786" className="block text-sm text-warm-ivory/40 hover:text-luxury-gold transition-colors">
+                07902311786
+              </a>
+              <p className="text-sm text-warm-ivory/40">
+                110 Hagley Road West,<br />Birmingham, B67 5EZ
+              </p>
+            </div>
+
             <div className="flex gap-6">
               {footerLinks.socials.map((social, i) => (
                 <a key={i} href={social.href} className="text-warm-ivory/40 hover:text-luxury-gold transition-colors">
@@ -78,6 +91,23 @@ export default function Footer() {
                 ))}
               </ul>
             </div>
+          </div>
+
+          {/* Construction Partner Column */}
+          <div className="lg:col-span-1">
+            <h4 className="text-sm uppercase tracking-[0.3em] font-medium text-luxury-gold mb-8">Construction Partner</h4>
+            <p className="text-sm text-warm-ivory/40 leading-relaxed mb-6">
+              Build delivery through our trusted construction partner.
+            </p>
+            <a
+              href="https://hssdb.co.uk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-warm-ivory/50 hover:text-luxury-gold transition-colors duration-500 group border-b border-transparent hover:border-luxury-gold/30 pb-0.5"
+            >
+              HSS Design &amp; Build
+              <ExternalLink className="w-3 h-3 opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-500" />
+            </a>
           </div>
 
           {/* Newsletter Column */}
