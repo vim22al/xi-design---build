@@ -73,7 +73,14 @@ export const client = {
     }
 
     try {
-      return await baseClient.fetch(query, params, options);
+      const fetchOptions = {
+        ...options,
+        cache: 'no-store' as const,
+        next: { revalidate: 0, ...(options?.next || {}) }
+      };
+      
+      console.log(`[Sanity Fetch] Executing query: ${query.substring(0, 50)}...`);
+      return await baseClient.fetch(query, params, fetchOptions);
     } catch (error) {
       console.error('Sanity Fetch Error, falling back to mock data:', error);
       // Fallback to mock data on error as well

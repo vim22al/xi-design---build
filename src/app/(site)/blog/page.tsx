@@ -5,6 +5,8 @@ import { Metadata } from "next";
 import { client } from "@/sanity/lib/client";
 import { allPostsQuery, allCategoriesQuery, featuredPostQuery, latestPostsQuery } from "@/sanity/lib/queries";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Journal | XI DESIGN BUILD",
   description: "Insights into the world of luxury architecture, modern design trends, and technical innovation from the XI Design & Build studio.",

@@ -14,13 +14,7 @@ interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
 }
 
-export async function generateStaticParams() {
-  const slugs = await client.fetch(postSlugsQuery);
-  return slugs.map((post: any) => ({
-    slug: post.slug,
-  }));
-}
-
+export const dynamic = "force-dynamic";
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   const { slug } = await params;
   const post = await client.fetch(postBySlugQuery, { slug });
