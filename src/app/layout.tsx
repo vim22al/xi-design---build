@@ -1,13 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import SmoothScrollProvider from "@/providers/SmoothScrollProvider";
-import AnimationProvider from "@/providers/AnimationProvider";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import Preloader from "@/components/ui/Preloader";
-import PageTransition from "@/components/ui/PageTransition";
-import CustomCursor from "@/components/ui/CustomCursor";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -66,17 +59,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body className="antialiased selection:bg-luxury-gold selection:text-rich-black">
-        <Preloader />
-        <CustomCursor />
-        <SmoothScrollProvider>
-          <AnimationProvider>
-            <Navbar />
-            <PageTransition>
-              {children}
-            </PageTransition>
-            <Footer />
-          </AnimationProvider>
-        </SmoothScrollProvider>
+        {children}
       </body>
     </html>
   );

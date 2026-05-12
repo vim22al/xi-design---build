@@ -1,0 +1,22 @@
+body {
+  cursor: none; /* Hide default cursor globally */
+}
+
+a, button, select, input, .cursor-pointer {
+  cursor: none !important;
+}
+
+@media (max-width: 768px) {
+  body {
+    cursor: auto; /* Show default cursor on mobile */
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-playfair);
+  font-weight: 400;
+  background: linear-gradient(135deg, var(--luxury-gold), var(--deep-burgundy));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
