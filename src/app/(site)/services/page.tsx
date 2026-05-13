@@ -21,7 +21,7 @@ const services = [
   {
     title: "Loft Conversions",
     description: "Unlock the hidden potential of your roof space. Our loft conversions are designed to maximize natural light and create sophisticated retreats, whether it's a new master suite or a quiet home office.",
-    image: "https://images.unsplash.com/photo-1600585152223-998175727efc?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2070&auto=format&fit=crop",
     benefits: ["Maximised internal volume", "Bespoke storage solutions", "Innovative skylight design", "Structural integrity focus"]
   },
   {
@@ -51,7 +51,7 @@ const services = [
   {
     title: "Design & Build",
     description: "A single point of responsibility for your entire project. Our integrated design and build service provides a seamless transition from the first sketch to the final brick.",
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop",
     benefits: ["Streamlined communication", "Budget-conscious delivery", "Timeframe optimization", "Quality control management"]
   },
   {
@@ -97,7 +97,9 @@ export default function ServicesPage() {
                         src={service.image} 
                         alt={service.title}
                         fill
-                        className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                        className={`object-cover transition-all duration-1000 group-hover:scale-110 ${
+                          service.title === "Design & Build" ? "contrast-105 brightness-95 saturate-[0.85]" : ""
+                        }`}
                       />
                       <div className="absolute inset-0 opacity-20 bg-luxury-gold" />
                     </div>

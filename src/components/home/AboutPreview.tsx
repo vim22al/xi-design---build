@@ -2,11 +2,17 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
+import CountUp from 'react-countup';
 import SectionHeading from '@/components/ui/SectionHeading';
 import LuxuryButton from '@/components/ui/LuxuryButton';
 
 export default function AboutPreview() {
+  const statsRef = React.useRef<HTMLDivElement>(null);
+  const isStatsInView = useInView(statsRef, { once: true, amount: 0.5 });
+  const [hasProjectsFinished, setHasProjectsFinished] = React.useState(false);
+  const [hasYearsFinished, setHasYearsFinished] = React.useState(false);
+
   return (
     <section className="section-spacing bg-warm-ivory overflow-hidden">
       <div className="container-luxury">
@@ -69,16 +75,47 @@ export default function AboutPreview() {
                 Our approach combines technical excellence with creative innovation, ensuring every project we undertake is delivered with precision and flair.
               </p>
               
-              <div className="grid grid-cols-2 gap-8 pt-6 border-t border-luxury-gold/15">
+              <div ref={statsRef} className="grid grid-cols-2 gap-8 pt-6 border-t border-luxury-gold/15">
                 <div>
-                  <h4 className="text-3xl font-display text-dual-tone">550+</h4>
+                  <h4 className="text-3xl font-display text-dual-tone flex items-center min-w-[4ch]">
+                    <CountUp
+                      start={0}
+                      end={isStatsInView ? 550 : 0}
+                      duration={2.8}
+                      useEasing={true}
+                      onEnd={() => setHasProjectsFinished(true)}
+                    />
+                    <motion.span
+                      initial={{ opacity: 0, scale: 0.5 }}
+                      animate={{ opacity: hasProjectsFinished ? 1 : 0, scale: hasProjectsFinished ? 1 : 0.5 }}
+                      transition={{ duration: 0.4 }}
+                      className="inline-block origin-left -ml-0.5"
+                    >
+                      +
+                    </motion.span>
+                  </h4>
                   <p className="text-[10px] uppercase tracking-widest text-luxury-gold/70 mt-2">Completed Projects</p>
                 </div>
                 <div>
-                  <h4 className="text-3xl font-display text-dual-tone">15+</h4>
+                  <h4 className="text-3xl font-display text-dual-tone flex items-center min-w-[3ch]">
+                    <CountUp
+                      start={0}
+                      end={isStatsInView ? 15 : 0}
+                      duration={2.2}
+                      useEasing={true}
+                      onEnd={() => setHasYearsFinished(true)}
+                    />
+                    <motion.span
+                      initial={{ opacity: 0, scale: 0.5 }}
+                      animate={{ opacity: hasYearsFinished ? 1 : 0, scale: hasYearsFinished ? 1 : 0.5 }}
+                      transition={{ duration: 0.4 }}
+                      className="inline-block origin-left -ml-0.5"
+                    >
+                      +
+                    </motion.span>
+                  </h4>
                   <p className="text-[10px] uppercase tracking-widest text-luxury-gold/70 mt-2">Years Experience</p>
                 </div>
-
               </div>
             </div>
 

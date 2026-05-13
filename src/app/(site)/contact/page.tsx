@@ -4,6 +4,7 @@ import ContactForm from "@/components/ui/ContactForm";
 import FadeInSection from "@/components/ui/FadeInSection";
 import { Mail, Phone, MapPin, Instagram, Linkedin, Twitter, ExternalLink } from "lucide-react";
 import { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Contact Us | XI DESIGN BUILD",
@@ -158,19 +159,73 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* Handshake Consultation Moment Section */}
+      <section className="pb-32 pt-16">
+        <div className="container-luxury">
+          <FadeInSection>
+            <div className="relative w-full aspect-[21/9] md:aspect-[24/9] rounded-2xl overflow-hidden shadow-2xl group border border-rich-black/5">
+              <Image 
+                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop"
+                alt="Client architecture consultation meeting handshake"
+                fill
+                className="object-cover transition-all duration-1000 group-hover:scale-105 saturate-[0.85] contrast-105 brightness-95"
+              />
+              {/* Filmic Ambient Vignette */}
+              <div className="absolute inset-0 bg-gradient-to-t from-rich-black/40 via-transparent to-black/10 pointer-events-none" />
+              <div className="absolute inset-0 shadow-[inset_0_0_40px_rgba(0,0,0,0.3)] pointer-events-none" />
+              
+              {/* Context Banner Overlay */}
+              <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12 max-w-lg pointer-events-none">
+                <span className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold block mb-2 drop-shadow-md">
+                  Trusted Partnerships
+                </span>
+                <p className="text-white text-lg md:text-xl font-display leading-tight drop-shadow-md">
+                  Building bespoke visions through collaborative studio excellence.
+                </p>
+              </div>
+            </div>
+          </FadeInSection>
+        </div>
+      </section>
+
       {/* Map Section */}
-      <section className="h-[600px] w-full relative grayscale hover:grayscale-0 transition-all duration-1000 overflow-hidden">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2430.490802717904!2d-2.007604588265008!3d52.47355157193233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870bb073f44c9b9%3A110+Hagley+Road+West%2C+Birmingham%2C+B67+5EZ!5e0!3m2!1sen!2suk!4v1715349999999!5m2!1sen!2suk" 
-          width="100%" 
-          height="100%" 
-          style={{ border: 0 }} 
-          allowFullScreen 
-          loading="lazy" 
-          referrerPolicy="no-referrer-when-downgrade"
-          className="opacity-60"
-        />
-        <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-white via-transparent to-white" />
+      <section className="section-spacing bg-warm-ivory/20 border-t border-rich-black/5">
+        <div className="container-luxury">
+          <FadeInSection className="max-w-xl mx-auto text-center mb-16">
+            <span className="text-[10px] uppercase tracking-widest text-luxury-gold font-bold block mb-3">
+              Location
+            </span>
+            <h3 className="text-2xl md:text-4xl font-display mb-6 text-dual-tone">
+              Visit Our Birmingham Studio
+            </h3>
+            <p className="text-foreground/60 text-sm font-light mb-8">
+              110 Hagley Road West, Birmingham, B67 5EZ
+            </p>
+            <a 
+              href="https://maps.google.com/?q=110+Hagley+Road+West,+Birmingham,+B67+5EZ" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-medium bg-rich-black text-white px-6 py-3 rounded hover:bg-luxury-gold transition-colors duration-500 shadow-md"
+            >
+              Open in Google Maps
+            </a>
+          </FadeInSection>
+
+          <FadeInSection>
+            <div className="h-[500px] w-full relative rounded-2xl overflow-hidden shadow-2xl border border-rich-black/5">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2430.490802717904!2d-2.007604588265008!3d52.47355157193233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870bb073f44c9b9%3A110+Hagley+Road+West%2C+Birmingham%2C+B67+5EZ!5e0!3m2!1sen!2suk!4v1715349999999!5m2!1sen!2suk" 
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }} 
+                allowFullScreen 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full"
+              />
+            </div>
+          </FadeInSection>
+        </div>
       </section>
 
       {/* Final CTA */}

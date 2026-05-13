@@ -5,6 +5,7 @@ import FadeInSection from "@/components/ui/FadeInSection";
 import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 import { Metadata } from "next";
+import AnimatedStats from "@/components/about/AnimatedStats";
 
 export const metadata: Metadata = {
   title: "Creative Architecture | XI DESIGN BUILD",
@@ -119,23 +120,7 @@ export default function AboutPage() {
       </section>
 
       {/* Experience / Stats Section */}
-      <section className="section-spacing bg-rich-black text-white">
-        <div className="container-luxury">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
-            {[
-              { label: "Years Experience", value: "15+" },
-              { label: "Completed Projects", value: "550+" },
-              { label: "Design Awards", value: "18" },
-              { label: "Expert Team", value: "25" }
-            ].map((stat, i) => (
-              <FadeInSection key={i} delay={i * 0.1}>
-                <h3 className="text-3xl md:text-5xl font-display text-luxury-gold mb-4">{stat.value}</h3>
-                <p className="text-[10px] uppercase tracking-widest opacity-40">{stat.label}</p>
-              </FadeInSection>
-            ))}
-          </div>
-        </div>
-      </section>
+      <AnimatedStats />
 
       {/* Why Choose XI Design & Build */}
       <section className="section-spacing bg-warm-ivory">
@@ -182,9 +167,19 @@ export default function AboutPage() {
               { name: "Aiko Tanaka", role: "Technical Lead", img: "/images/aiko_tanaka.png" },
             ].map((member, i) => (
               <FadeInSection key={i} delay={i * 0.1} className="group">
-                <div className="aspect-[3/4] overflow-hidden relative mb-6">
-                  <Image src={member.img} alt={member.name} fill className="object-cover transition-transform duration-1000 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-rich-black/10 group-hover:bg-transparent transition-colors duration-500" />
+                <div className="aspect-[3/4] overflow-hidden relative mb-6 bg-rich-black/5 shadow-[inset_0_0_30px_rgba(0,0,0,0.2)]">
+                  {/* Portrait element with luxury monochrome base grading and smooth hover color warmth recovery */}
+                  <Image 
+                    src={member.img} 
+                    alt={member.name} 
+                    fill 
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover transition-all duration-700 ease-out group-hover:scale-105 grayscale contrast-105 brightness-95 group-hover:grayscale-[25%] group-hover:brightness-105" 
+                  />
+                  {/* Premium internal cinematic dark overlay with custom inner vignetting depth */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-rich-black/40 via-rich-black/5 to-black/20 mix-blend-multiply pointer-events-none transition-opacity duration-700 group-hover:opacity-60" />
+                  {/* Secondary inner framing border accent to elevate editorial print magazine feeling */}
+                  <div className="absolute inset-0 border border-white/10 group-hover:border-luxury-gold/20 transition-colors duration-700 pointer-events-none" />
                 </div>
                 <h4 className="text-xl font-display text-dual-tone">{member.name}</h4>
                 <p className="text-[10px] uppercase tracking-widest text-luxury-gold mt-2 font-medium">{member.role}</p>

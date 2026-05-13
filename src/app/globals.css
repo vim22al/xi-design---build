@@ -229,3 +229,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
+
+/* Force footer section heading colors globally */
+footer h4 {
+  color: #A6824A !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: #A6824A !important;
+}
+
